@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   def home
     if session.has_key?(:user_id)
       user = User.find(session[:user_id])
@@ -8,5 +7,4 @@ class ApplicationController < ActionController::Base
       render :home
     end
   end
-
 end

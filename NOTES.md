@@ -72,5 +72,5 @@ Nested Resources: When adding an attendee to a concert:
 /attendees/:id
 
 ***TO-DO***
--Create signup/login procedure for users
+-User must be logged in to see any page
 -omniauth
