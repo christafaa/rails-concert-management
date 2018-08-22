@@ -70,3 +70,7 @@ Nested Resources: When adding an attendee to a concert:
 /concerts/:concert_id/attendees/:id/destroy
 
 /attendees/:id
+
+***TO-DO***
+-Create signup/login procedure for users
+-omniauth

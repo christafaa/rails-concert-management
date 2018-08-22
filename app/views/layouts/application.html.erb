@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <!-- <h1>Concert Management</h1> -->
+
     <%= yield %>
+
+    <% if session.has_key?(:user_id) %>
+      <%= form_tag (controller: )  %>
+    <% end %>
+
   </body>
 </html>
