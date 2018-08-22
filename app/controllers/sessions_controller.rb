@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
   def new
-
   end
 
   def create
@@ -9,7 +8,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-
+    binding.pry
+    session.clear
+    redirect_to "/"
   end
-  
+
 end

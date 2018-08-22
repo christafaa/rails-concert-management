@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/', to: "application#home"
 
   resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+
+  resources :sessions, only: [:new, :create]
+  post '/logout', to: "sessions#destroy"
 
 end
