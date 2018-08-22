@@ -1,7 +1,7 @@
 class CreateAttendees < ActiveRecord::Migration[5.2]
   def change
     create_table :attendees do |t|
-      t.sting :name
+      t.string :name
       t.string :profession
       t.integer :age
       t.integer :wealth_rating
