@@ -26,7 +26,14 @@ class ConcertsController < ApplicationController
   end
 
   def update
+    @concert = Concert.find(params[:id])
+    @concert.update(concert_params)
 
+    if @concert.save
+      redirect_to concert_path(@concert)
+    else
+      render :edit
+    end
   end
 
   def destroy
