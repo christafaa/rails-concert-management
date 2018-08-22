@@ -15,7 +15,7 @@
     <%= yield %>
 
     <% if session.has_key?(:user_id) %>
-      <p>Logged in as: <%= User.find(session[:user_id]).username %></p>
+      <p>Logged in as: <%= display_user(session) %></p>
       <%= button_to "Logout", "/logout" %>
     <% end %>
 
