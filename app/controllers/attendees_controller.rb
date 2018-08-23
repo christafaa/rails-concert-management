@@ -2,13 +2,14 @@ class AttendeesController < ApplicationController
   def create
     attendee = Attendee.find_by(name: attendee_params[:name])
     concert = Concert.find(params[:concert_id])
+    seat_number = params[:ticket][:seat_number]
 
     if attendee
-      seat_number = params[:ticket][:seat_number]
       Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
       redirect_to concert_path(concert)
     else
       attendee = Attendee.create(name: attendee_params[:name])
+      Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
       redirect_to edit_concert_attendee_path(concert, attendee)
     end
   end
@@ -22,7 +23,6 @@ class AttendeesController < ApplicationController
     concert = Concert.find(params[:concert_id])
 
     if attendee
-      Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
       redirect_to concert_path(concert)
     else
       redirect_to edit_concert_attendee_path(concert, attendee)
