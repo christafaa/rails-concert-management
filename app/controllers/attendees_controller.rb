@@ -1,4 +1,8 @@
 class AttendeesController < ApplicationController
+  def new
+    #maybe use this with form_for in concert show page?
+  end
+
   def create
     attendee = Attendee.find_by(name: attendee_params[:name])
     concert = Concert.find(params[:concert_id])

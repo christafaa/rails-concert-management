@@ -9,3 +9,11 @@
 <h3>Notes: <%= @attendee.notes %></h3>
 
 <h3>Solicitor: <%= @attendee.user ? @attendee.user.username : "N/A" %></h3>
+
+<h3><%= @attendee.name %>'s Concerts:</h3>
+
+<ul>
+  <% @attendee.concerts.each do |concert| %>
+    <li><%= link_to concert.title, concert_path(concert) %> - <%= display_date(concert) %></li>
+  <% end %>
+</ul>
