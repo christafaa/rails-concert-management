@@ -20,7 +20,7 @@ class AttendeesController < ApplicationController
   end
 
   def index
-
+    @attendees = Attendee.all
   end
 
   def destroy

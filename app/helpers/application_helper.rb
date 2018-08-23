@@ -1,5 +1,9 @@
 module ApplicationHelper
-  def display_user(session)
-    User.find(session[:user_id]).username
+  def find_user(id)
+    User.find(id)
+  end
+
+  def display_user(id)
+    find_user(id).username
   end
 end

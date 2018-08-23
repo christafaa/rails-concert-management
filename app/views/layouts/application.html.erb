@@ -11,11 +11,14 @@
 
   <body>
     <!-- <h1>Concert Management</h1> -->
+    <% if session.has_key?(:user_id) %>
+      <%= button_to "Home", user_path(find_user(session[:user_id])), method: :get %>
+    <% end %>
 
     <%= yield %>
 
     <% if session.has_key?(:user_id) %>
-      <p>Logged in as: <%= display_user(session) %></p>
+      <p>Logged in as: <%= display_user(session[:user_id]) %></p>
       <%= button_to "Logout", "/logout" %>
     <% end %>
 
