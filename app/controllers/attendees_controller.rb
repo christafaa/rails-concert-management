@@ -22,7 +22,7 @@ class AttendeesController < ApplicationController
   end
 
   def show
-
+    @attendee = Attendee.find(params[:id])
   end
 
   def index

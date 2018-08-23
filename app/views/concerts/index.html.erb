@@ -1,5 +1,5 @@
 <h2>All Concerts</h2>
 
 <% @concerts.each do |concert| %>
-  <li><%= concert.title %></li>
+  <li><%= link_to concert.title, concert_path(concert) %></li>
 <% end %>
