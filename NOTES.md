@@ -72,5 +72,7 @@ Nested Resources: When adding an attendee to a concert:
 /attendees/:id
 
 ***TO-DO***
+-create attendees controller and views
+-add ticket functionality (ticket controller, no views)
 -User must be logged in to see any page
 -omniauth

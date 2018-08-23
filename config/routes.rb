@@ -3,10 +3,14 @@ Rails.application.routes.draw do
 
   get '/', to: "application#home"
 
-  resources :users
+  resources :users, only: [:new, :create, :show, :index]
+
   resources :concerts
 
+  resources :attendees
+
   resources :sessions, only: [:new, :create]
+  # possible to just do get sesson#new ?
   post '/logout', to: "sessions#destroy"
 
 end
