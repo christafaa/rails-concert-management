@@ -1,24 +1,30 @@
 class AttendeesController < ApplicationController
-  def new
-    @attendee = Attendee.new
-  end
-
   def create
-    @attendee = Attendee.create(attendee_params)
+    attendee = Attendee.find_by(name: attendee_params[:name])
 
-    if @attendee.save
-      redirect_to attendee_path(@attendee)
+    if attendee
+      concert = Concert.find(params[:concert_id])
+      Ticket.create(concert: concert, attendee: attendee, seat_number: params[:ticket][:seat_number])
+      redirect_to concert_path(concert)
     else
-      render :new
+      @attendee = Attendee.create(name: attendee_params[:name])
+      render :edit
     end
   end
 
   def edit
-
+    @attendee = Attendee.find(params[:id])
   end
 
   def update
+    binding.pry
+    @attendee = Attendee.find(params[:id]).update(attendee_params)
 
+    if @attendee.save
+      redirect_to
+    else
+
+    end
   end
 
   def show

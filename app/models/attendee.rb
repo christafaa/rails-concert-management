@@ -4,4 +4,5 @@ class Attendee < ActiveRecord::Base
   has_many :concerts, through: :tickets
 
   validates :name, presence: true
+  validates :name, uniqueness: true
 end

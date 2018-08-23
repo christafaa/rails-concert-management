@@ -1,4 +1,4 @@
-<%= form_for @attendee do |f| %>
+<%= form_for @attendee, url: concert_attendees_path do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br><br>
   <%= f.label :profession %>

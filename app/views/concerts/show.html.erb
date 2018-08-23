@@ -15,3 +15,13 @@
     <% end %>
   </ul>
 <% end %>
+
+<h3>Add an Attendee:</h3>
+
+<%= form_tag concert_attendees_path(@concert) do %>
+  <%= label_tag "attendee[name]", "Name:" %>
+  <%= text_field_tag "attendee[name]" %><br><br>
+  <%= label_tag "ticket[seat_number]", "Seat Number:" %>
+  <%= number_field_tag "ticket[seat_number]" %><br><br>
+  <%= submit_tag "Add Attendee" %>
+<% end %>

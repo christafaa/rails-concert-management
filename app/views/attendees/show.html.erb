@@ -6,6 +6,6 @@
 
 <h3>Wealth Rating: <%= @attendee.wealth_rating ? @attendee.wealth_rating : "N/A" %></h3>
 
-<h3>Notes: <%= !@attendee.notes.empty? ? @attendee.notes : "N/A" %></h3>
+<h3>Notes: <%= @attendee.notes %></h3>
 
 <h3>Solicitor: <%= @attendee.user ? @attendee.user.username : "N/A" %></h3>
