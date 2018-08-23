@@ -75,4 +75,6 @@ Nested Resources: When adding an attendee to a concert:
 -create attendees controller and views
 -add ticket functionality (ticket controller, no views)
 -User must be logged in to see any page
--omniauth
+-omniauth, github
+-make numericality validation for wealth_rating (1-5), maybe select box
+-use scope method and where

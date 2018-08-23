@@ -5,3 +5,13 @@
 <h3>Venue: <%= @concert.venue %></h3>
 
 <%= link_to "Edit Concert", edit_concert_path(@concert) %>
+
+<h3>Attendees:</h3>
+
+<% if !@concert.attendees.empty? %>
+  <ul>
+    <% @concert.attendees.each do |attendee| %>
+      <li><%= link_to attendee.name, attendee_path(attendee) %></li>
+    <% end %>
+  </ul>
+<% end %>
