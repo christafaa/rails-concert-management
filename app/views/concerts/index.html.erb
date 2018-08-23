@@ -3,3 +3,7 @@
 <% @concerts.each do |concert| %>
   <li><%= link_to concert.title, concert_path(concert) %></li>
 <% end %>
+
+<br>
+
+<%= link_to "Create a Concert", new_concert_path %>

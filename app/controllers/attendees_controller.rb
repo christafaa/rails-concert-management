@@ -1,14 +1,15 @@
 class AttendeesController < ApplicationController
   def create
     attendee = Attendee.find_by(name: attendee_params[:name])
+    concert = Concert.find(params[:concert_id])
 
     if attendee
-      concert = Concert.find(params[:concert_id])
-      Ticket.create(concert: concert, attendee: attendee, seat_number: params[:ticket][:seat_number])
+      seat_number = params[:ticket][:seat_number]
+      Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
       redirect_to concert_path(concert)
     else
-      @attendee = Attendee.create(name: attendee_params[:name])
-      render :edit
+      attendee = Attendee.create(name: attendee_params[:name])
+      redirect_to edit_concert_attendee_path(concert, attendee)
     end
   end
 
@@ -17,13 +18,14 @@ class AttendeesController < ApplicationController
   end
 
   def update
-    binding.pry
-    @attendee = Attendee.find(params[:id]).update(attendee_params)
+    attendee = Attendee.find_by(id: params[:id]).update(attendee_params)
+    concert = Concert.find(params[:concert_id])
 
-    if @attendee.save
-      redirect_to
+    if attendee
+      Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
+      redirect_to concert_path(concert)
     else
-
+      redirect_to edit_concert_attendee_path(concert, attendee)
     end
   end
 
