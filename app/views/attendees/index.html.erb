@@ -1,0 +1,7 @@
+<h2>All Attendees</h2>
+
+<ul>
+  <%= @attendees.each do |attendee| %>
+    <li><%= link_to attendee.name, attendee_path(attendee) %></li>
+  <% end %>
+</ul>
