@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show, :index]
 
-  resources :concerts
+  resources :concerts do
+    resources :attendees, only: [:new, :create]
+  end
 
-  resources :attendees
+  resources :attendees, except: [:new, :create]
 
   resources :sessions, only: [:new, :create]
   # possible to just do get sesson#new ?

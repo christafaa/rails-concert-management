@@ -1,11 +1,11 @@
 <h2><%= @attendee.name %></h2>
 
-<h3>Profession: <%= @attendee.profession %></h3>
+<h3>Profession: <%= @attendee.profession ? @attendee.profession : "N/A" %></h3>
 
-<h3>Age: <%= @attendee.age %></h3>
+<h3>Age: <%= @attendee.age ? @attendee.profession : "N/A" %></h3>
 
-<h3>Wealth Rating: <%= @attendee.wealth_rating %></h3>
+<h3>Wealth Rating: <%= @attendee.wealth_rating ? @attendee.wealth_rating : "N/A" %></h3>
 
-<h3>Notes: <%= @attendee.notes %></h3>
+<h3>Notes: <%= !@attendee.notes.empty? ? @attendee.notes : "N/A" %></h3>
 
-<h3>Solicitor: <%= display_solicitor(@attendee) %></h3>
+<h3>Solicitor: <%= @attendee.user ? @attendee.user.username : "N/A" %></h3>
