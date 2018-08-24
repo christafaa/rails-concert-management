@@ -8,13 +8,17 @@
 
 <h3>Attendees:</h3>
 
-<% if !@concert.attendees.empty? %>
-  <ul>
+
+<ul>
+  <% if !@concert.attendees.empty? %>
     <% @concert.attendees.uniq.each do |attendee| %>
       <li><%= link_to attendee.name, attendee_path(attendee) %> Seat(s): <%= display_seats(@concert, attendee) %></li>
     <% end %>
-  </ul>
-<% end %>
+  <% else %>
+    <li>None</li>
+  <% end %>
+</ul>
+
 
 <h3>Select an existing attendee to add to concert:</h3>
 

@@ -1,7 +1,11 @@
-<h2>My Prospects:</h2>
+<h2><%= @user.username.capitalize %>'s Prospects:</h2>
 
 <ul>
-  <% @user.attendees.each do |attendee| %>
-    <li><%= link_to attendee.name, attendee_path(attendee) %></li>
+  <% if !@user.attendees.empty? %>
+    <% @user.attendees.each do |attendee| %>
+      <li><%= link_to attendee.name, attendee_path(attendee) %></li>
+    <% end %>
+  <% else %>
+    <li>None</li>
   <% end %>
 </ul>
