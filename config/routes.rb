@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   # possible to just do get sesson#new ?
   post '/logout', to: "sessions#destroy"
 
+  get '/auth/github/callback' => 'sessions#create_via_omniauth'
+
 end

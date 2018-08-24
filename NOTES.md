@@ -76,7 +76,6 @@ Nested Resources: When adding an attendee to a concert:
 -if an attendee has a user, it is a prospect
 -add and remove prospects
 -nested form in edit user to bring over seat_number to update
--make a table for attendees (and prospects?) in the concert and user show pages
 -create attendees controller and views
 -add ticket functionality (ticket controller, no views)
 -User must be logged in to see any page
