@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2018_08_22_171210) do
     t.integer "age"
     t.integer "wealth_rating"
     t.text "notes"
-    t.boolean "prospect", default: false
     t.integer "user_id"
   end
 
