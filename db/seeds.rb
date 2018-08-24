@@ -32,14 +32,42 @@ attendees = [
   ["Klara Wyatt", "Musician", 58, 7, "Interested in hosting a home concert", 3]
 ]
 
+puts "Generating Users..."
 users.each do |username, password|
   User.create(username: username, password: password)
 end
 
+puts "Generating Concerts..."
 concerts.each do |title, venue, date|
   Concert.create(title: title, venue: venue, date: date)
 end
 
+puts "Generating Attendees..."
 attendees.each do |name, profession, age, wealth_rating, notes, user_id|
   Attendee.create(name: name, profession: profession, age: age, wealth_rating: wealth_rating, notes: notes, user_id: user_id)
 end
+
+concert1 = Concert.find(1)
+concert2 = Concert.find(2)
+concert3 = Concert.find(3)
+number = 101
+
+puts "Generating Tickets for Concert 1..."
+Attendee.all.each do |attendee|
+  Ticket.create(concert: concert1, attendee: attendee, seat_number: number)
+  number += 1
+end
+
+puts "Generating Tickets for Concert 2..."
+Attendee.all.each do |attendee|
+  Ticket.create(concert: concert2, attendee: attendee, seat_number: number)
+  number += 1
+end
+
+puts "Generating Tickets for Concert 3..."
+Attendee.all.each do |attendee|
+  Ticket.create(concert: concert3, attendee: attendee, seat_number: number)
+  number += 1
+end
+
+puts "Complete!"
