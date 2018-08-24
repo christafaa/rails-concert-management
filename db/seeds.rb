@@ -1,7 +1,7 @@
 users = [
   ["chris", "password"],
-  ["fred", "password"],
-  ["julia", "password"]
+  ["frank", "password"],
+  ["judy", "password"]
 ]
 
 #date format: "2018-08-09" "year-month-day"
