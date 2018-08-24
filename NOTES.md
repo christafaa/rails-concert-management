@@ -72,6 +72,9 @@ Nested Resources: When adding an attendee to a concert:
 /attendees/:id
 
 ***TO-DO***
+
+-if an attendee has a user, it is a prospect
+-add and remove prospects
 -nested form in edit user to bring over seat_number to update
 -make a table for attendees (and prospects?) in the concert and user show pages
 -create attendees controller and views
@@ -81,3 +84,6 @@ Nested Resources: When adding an attendee to a concert:
 -make numericality validation for wealth_rating (1-9), maybe select box
 -use scope method and where
 -display seat numbers somehow, maybe on concert show page
+-iterate over unique users in concert show page, show seat_numbers
+-add title to user schema
+-user can add concerts via an attendees show page

@@ -6,7 +6,6 @@ class CreateAttendees < ActiveRecord::Migration[5.2]
       t.integer :age
       t.integer :wealth_rating
       t.text :notes
-      t.boolean :prospect, :default => "f"
       t.integer :user_id
     end
   end
