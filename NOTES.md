@@ -72,6 +72,10 @@ Nested Resources: When adding an attendee to a concert:
 /attendees/:id
 
 ***TO-DO***
+-add date to all concerts
+-add wealth rating and num tickets to all attendees
+-scope by best rating
+-scope by most tickets
 
 -if an attendee has a user, it is a prospect
 -add and remove prospects
@@ -79,8 +83,7 @@ Nested Resources: When adding an attendee to a concert:
 -create attendees controller and views
 -add ticket functionality (ticket controller, no views)
 -User must be logged in to see any page
--omniauth, github
--make numericality validation for wealth_rating (1-9), maybe select box
+-make select box for wealth_rating (1-9)
 -use scope method and where
 -display seat numbers somehow, maybe on concert show page
 -iterate over unique users in concert show page, show seat_numbers

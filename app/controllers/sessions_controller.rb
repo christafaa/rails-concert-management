@@ -14,11 +14,14 @@ class SessionsController < ApplicationController
   end
 
   def create_via_omniauth
-    @user = User.find_or_create_by(uid: auth['uid'], username: auth['info']['nickname'])
+    user = User.find_by(uid: auth["uid"])
+
+    if user.nil?
+      user = User.create(uid: auth["uid"], username: auth["info"]["nickname"], password: SecureRandom.hex)
+    end
 
     session[:user_id] = user.id
-
-    redirect_to user_path(@user)
+    redirect_to user_path(user)
   end
 
   def destroy
