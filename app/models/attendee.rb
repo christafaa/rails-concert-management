@@ -6,6 +6,8 @@ class Attendee < ActiveRecord::Base
   validates :name, presence: true
   validates :name, uniqueness: true
 
+  validates :age, numericality: { greater_than: 0 }
+
   validates :wealth_rating, numericality: { greater_than: 0 }
   validates :wealth_rating, numericality: { less_than: 10 }
 end
