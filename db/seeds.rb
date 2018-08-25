@@ -46,26 +46,19 @@ attendees.each do |name, profession, age, wealth_rating, notes, user_id|
   Attendee.create(name: name, profession: profession, age: age, wealth_rating: wealth_rating, notes: notes, user_id: user_id)
 end
 
-concert1 = Concert.find(1)
-concert2 = Concert.find(2)
-concert3 = Concert.find(3)
 number = 101
 
 puts "Generating Tickets for Concert 1..."
 Attendee.all.each do |attendee|
-  Ticket.create(concert: concert1, attendee: attendee, seat_number: number)
+  Ticket.create(concert: Concert.find(1), attendee: attendee, seat_number: number)
   number += 1
 end
 
-puts "Generating Tickets for Concert 2..."
-Attendee.all.each do |attendee|
-  Ticket.create(concert: concert2, attendee: attendee, seat_number: number)
-  number += 1
-end
-
-puts "Generating Tickets for Concert 3..."
-Attendee.all.each do |attendee|
-  Ticket.create(concert: concert3, attendee: attendee, seat_number: number)
+puts "Generating 50 additional ticket orders..."
+50.times do
+  concert = Concert.find(rand(1..Concert.all.count))
+  attendee = Attendee.find(rand(1..Attendee.all.count))
+  Ticket.create(concert: concert, attendee: attendee, seat_number: number)
   number += 1
 end
 

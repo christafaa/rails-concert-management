@@ -10,4 +10,11 @@ class Attendee < ActiveRecord::Base
 
   validates :wealth_rating, numericality: { greater_than: 0 }
   validates :wealth_rating, numericality: { less_than: 10 }
+
+  scope :best_wealth_rating, -> { order('wealth_rating ASC') }
+
+  scope :most_tickets, -> { joins(:tickets).group('attendees.id').order('COUNT(attendees.id) DESC') }
+
+  scope :prospects, -> { where.not('user.id' => nil) }
+
 end

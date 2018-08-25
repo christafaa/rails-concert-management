@@ -76,6 +76,9 @@ Nested Resources: When adding an attendee to a concert:
 -add wealth rating and num tickets to all attendees
 -scope by best rating
 -scope by most tickets
+-scope by is prospect for concert show page
+
+-remove dup concerts from attendee show page
 
 -if an attendee has a user, it is a prospect
 -add and remove prospects

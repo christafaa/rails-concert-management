@@ -7,7 +7,7 @@
     <th>Wealth Rating</th>
     <th>Number of Tickets</th>
   </tr>
-  <% @attendees.each do |attendee| %>
+  <% Attendee.most_tickets.each do |attendee| %>
     <tr>
       <td><%= link_to attendee.name, attendee_path(attendee) %></td>
       <td><%= attendee.profession %></td>
