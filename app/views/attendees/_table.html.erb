@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Profession</th>
+    <th>Wealth Rating</th>
+    <th>Number of Tickets</th>
+    <th>Solicitor</th>
+  </tr>
+  <% @attendees.each do |attendee| %>
+    <tr>
+      <td><%= link_to attendee.full_name, attendee_path(attendee) %></td>
+      <td><%= attendee.profession %></td>
+      <td><%= attendee.wealth_rating %></td>
+      <td><%= attendee.tickets.count %></td>
+      <td><%= link_to attendee.user.username, user_path(attendee.user) if attendee.user %></td>
+    </tr>
+  <% end %>
+</table>

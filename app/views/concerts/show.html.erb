@@ -8,15 +8,12 @@
 
 <h3>Attendees:</h3>
 
-<ul>
-  <% if !@concert.attendees.empty? %>
-    <% @concert.attendees.uniq.each do |attendee| %>
-      <li><%= link_to attendee.full_name, attendee_path(attendee) %> Seat(s): <%= display_seats(@concert, attendee) %></li>
-    <% end %>
-  <% else %>
-    <li>None</li>
-  <% end %>
-</ul>
+<%= form_tag(concert_path(@concert), method: "get") do %>
+  <%= select_tag "sort", options_for_select(["Alpha", "Best Wealth Rating", "Most Tickets"]) %>
+  <%= submit_tag "Sort" %>
+<% end %><br>
+
+<%= render "attendees/table" %>
 
 <h3>Select an existing attendee to add to concert:</h3>
 

@@ -23,6 +23,16 @@ class ConcertsController < ApplicationController
 
   def show
     @concert = Concert.find(params[:id])
+
+    if params[:sort]
+      case params[:sort]
+        when "Alpha" then @attendees = @concert.attendees.alpha.uniq
+        when "Best Wealth Rating" then @attendees = @concert.attendees.best_wealth_rating.uniq
+        when "Most Tickets" then @attendees = @concert.attendees.most_tickets.uniq
+      end
+    else
+      @attendees = @concert.attendees.alpha.uniq
+    end
   end
 
   def update
