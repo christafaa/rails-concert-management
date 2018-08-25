@@ -11,7 +11,7 @@
     </tr>
     <% @user.attendees.each do |attendee| %>
       <tr>
-        <td><%= link_to attendee.name, attendee_path(attendee) %></td>
+        <td><%= link_to attendee.full_name, attendee_path(attendee) %></td>
         <td><%= attendee.profession %></td>
         <td><%= attendee.wealth_rating %></td>
         <td><%= attendee.tickets.count %></td>

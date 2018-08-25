@@ -13,7 +13,8 @@
 ActiveRecord::Schema.define(version: 2018_08_22_171210) do
 
   create_table "attendees", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
     t.string "profession"
     t.integer "age"
     t.integer "wealth_rating"

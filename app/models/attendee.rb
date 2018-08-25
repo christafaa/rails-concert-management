@@ -3,8 +3,8 @@ class Attendee < ActiveRecord::Base
   has_many :tickets
   has_many :concerts, through: :tickets
 
-  validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   validates :age, numericality: { greater_than: 0 }
 
@@ -16,5 +16,9 @@ class Attendee < ActiveRecord::Base
   scope :most_tickets, -> { joins(:tickets).group('attendees.id').order('COUNT(attendees.id) DESC') }
 
   scope :prospects, -> { where.not('user.id' => nil) }
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 
 end

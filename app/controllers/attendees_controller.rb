@@ -4,7 +4,7 @@ class AttendeesController < ApplicationController
   end
 
   def create
-    attendee = Attendee.find_by(name: attendee_params[:name])
+    attendee = Attendee.find_by(first_name: attendee_params[:first_name], last_name: attendee_params[:last_name])
     concert = Concert.find(params[:concert_id])
     seat_number = params[:ticket][:seat_number]
 
@@ -12,7 +12,7 @@ class AttendeesController < ApplicationController
       Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
       redirect_to concert_path(concert)
     else
-      attendee = Attendee.create(name: attendee_params[:name])
+      attendee = Attendee.create(first_name: attendee_params[:first_name], last_name: attendee_params[:last_name])
       Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
       redirect_to edit_concert_attendee_path(concert, attendee)
     end
@@ -48,6 +48,6 @@ class AttendeesController < ApplicationController
   private
 
   def attendee_params
-    params.require(:attendee).permit(:name, :profession, :age, :wealth_rating, :notes, :user_id)
+    params.require(:attendee).permit(:first_name, :last_name, :profession, :age, :wealth_rating, :notes, :user_id)
   end
 end
