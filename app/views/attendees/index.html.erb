@@ -1,7 +1,18 @@
 <h2>All Attendees</h2>
 
-<ul>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Profession</th>
+    <th>Wealth Rating</th>
+    <th>Number of Tickets</th>
+  </tr>
   <% @attendees.each do |attendee| %>
-    <li><%= link_to attendee.name, attendee_path(attendee) %></li>
+    <tr>
+      <td><%= link_to attendee.name, attendee_path(attendee) %></td>
+      <td><%= attendee.profession %></td>
+      <td><%= attendee.wealth_rating %></td>
+      <td><%= attendee.tickets.count %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
