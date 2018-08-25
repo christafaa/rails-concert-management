@@ -1,7 +1,7 @@
 <h2>All Attendees:</h2>
 
 <%= form_tag("/attendees", method: "get") do %>
-  <%= select_tag "sort", options_for_select(["Alpha", "Best Wealth Rating", "Most Tickets"]), include_blank: true %>
+  <%= select_tag "sort", options_for_select(["Alpha", "Best Wealth Rating", "Most Tickets"]) %>
   <%= submit_tag "Sort" %>
 <% end %><br>
 

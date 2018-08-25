@@ -39,15 +39,13 @@ class AttendeesController < ApplicationController
 
   def index
     if params[:sort]
-      if params[:sort] == "Alpha"
-        @attendees = Attendee.alpha
-      elsif params[:sort] == "Best Wealth Rating"
-        @attendees = Attendee.best_wealth_rating
-      elsif params [:sort] == "Most Tickets"
-        @attendees = Attendee.most_tickets
+      case params[:sort]
+        when "Alpha" then @attendees = Attendee.alpha
+        when "Best Wealth Rating" then @attendees = Attendee.best_wealth_rating
+        when "Most Tickets" then @attendees = Attendee.most_tickets
       end
     else
-      @attendees = Attendee.all
+      @attendees = Attendee.alpha
     end
   end
 
