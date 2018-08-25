@@ -38,7 +38,17 @@ class AttendeesController < ApplicationController
   end
 
   def index
-    @attendees = Attendee.all
+    if params[:sort]
+      if params[:sort] == "Alpha"
+        @attendees = Attendee.alpha
+      elsif params[:sort] == "Best Wealth Rating"
+        @attendees = Attendee.best_wealth_rating
+      elsif params [:sort] == "Most Tickets"
+        @attendees = Attendee.most_tickets
+      end
+    else
+      @attendees = Attendee.all
+    end
   end
 
   def destroy

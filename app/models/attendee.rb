@@ -17,6 +17,8 @@ class Attendee < ActiveRecord::Base
 
   scope :prospects, -> { where.not('user.id' => nil) }
 
+  scope :alpha, -> { order('last_name ASC') }
+
   def full_name
     "#{self.first_name} #{self.last_name}"
   end

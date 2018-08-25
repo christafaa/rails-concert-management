@@ -1,5 +1,10 @@
 <h2>All Attendees:</h2>
 
+<%= form_tag("/attendees", method: "get") do %>
+  <%= select_tag "sort", options_for_select(["Alpha", "Best Wealth Rating", "Most Tickets"]), include_blank: true %>
+  <%= submit_tag "Sort" %>
+<% end %><br>
+
 <table>
   <tr>
     <th>Name</th>
@@ -8,7 +13,7 @@
     <th>Number of Tickets</th>
     <th>Solicitor</th>
   </tr>
-  <% Attendee.most_tickets.each do |attendee| %>
+  <% @attendees.each do |attendee| %>
     <tr>
       <td><%= link_to attendee.full_name, attendee_path(attendee) %></td>
       <td><%= attendee.profession %></td>
