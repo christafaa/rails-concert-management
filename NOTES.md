@@ -72,7 +72,7 @@ Nested Resources: When adding an attendee to a concert:
 /attendees/:id
 
 ***TO-DO***
--add date to all concerts
+
 -add wealth rating and num tickets to all attendees
 -scope by best rating
 -scope by most tickets

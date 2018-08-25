@@ -1,11 +1,25 @@
 <h2><%= @user.username.capitalize %>'s Prospects:</h2>
 
-<ul>
-  <% if !@user.attendees.empty? %>
+
+<% if !@user.attendees.empty? %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Profession</th>
+      <th>Wealth Rating</th>
+      <th>Number of Tickets</th>
+    </tr>
     <% @user.attendees.each do |attendee| %>
-      <li><%= link_to attendee.name, attendee_path(attendee) %></li>
+      <tr>
+        <td><%= link_to attendee.name, attendee_path(attendee) %></td>
+        <td><%= attendee.profession %></td>
+        <td><%= attendee.wealth_rating %></td>
+        <td><%= attendee.tickets.count %></td>
+      </tr>
     <% end %>
-  <% else %>
-    <li>None</li>
-  <% end %>
+  </table>
+<% else %>
+<ul>
+  <li>None</li>
 </ul>
+<% end %>
