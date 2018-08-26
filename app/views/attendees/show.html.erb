@@ -8,12 +8,12 @@
 
 <h3>Notes: <%= @attendee.notes %></h3>
 
-<h3>Solicitor: <%= link_to @attendee.user.username, user_path(@attendee.user) %></h3>
+<h3>Solicitor: <%= link_to @attendee.user.username, user_path(@attendee.user) if @attendee.user %></h3>
 
 <h3><%= @attendee.full_name %>'s Concerts:</h3>
 
 <ul>
-  <% @attendee.concerts.each do |concert| %>
-    <li><%= link_to concert.title, concert_path(concert) %> - <%= display_date(concert) %></li>
+  <% @attendee.concerts.uniq.each do |concert| %>
+    <li><%= display_date(concert) %> -  <%= link_to concert.title, concert_path(concert) %> - Seats: <%= display_seats(concert, @attendee) %></li>
   <% end %>
 </ul>

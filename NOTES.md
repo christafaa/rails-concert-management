@@ -10,12 +10,9 @@ Nested Resources: When adding an attendee to a concert:
 
 ***TO-DO***
 
--remove dup concerts from attendee show page
-
 -add and remove prospects
 -nested form in edit user to bring over seat_number to update
 -make select box for wealth_rating (1-9)
--display seat numbers somehow, maybe on concert show page
 -add title to user schema
 -user can add concerts via an attendees show page
 
