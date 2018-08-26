@@ -38,15 +38,7 @@ class AttendeesController < ApplicationController
   end
 
   def index
-    if params[:sort]
-      case params[:sort]
-        when "Alpha" then @attendees = Attendee.alpha
-        when "Best Wealth Rating" then @attendees = Attendee.best_wealth_rating
-        when "Most Tickets" then @attendees = Attendee.most_tickets
-      end
-    else
-      @attendees = Attendee.alpha
-    end
+    @attendees, @sort_status = helpers.attendees_and_sort_status(Attendee, params[:sort])
   end
 
   def destroy
