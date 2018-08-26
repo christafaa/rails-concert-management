@@ -92,3 +92,5 @@ Nested Resources: When adding an attendee to a concert:
 -iterate over unique users in concert show page, show seat_numbers
 -add title to user schema
 -user can add concerts via an attendees show page
+
+-got good at googling

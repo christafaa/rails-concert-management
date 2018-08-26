@@ -16,6 +16,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    if params[:sort]
+      case params[:sort]
+        when "Alpha" then @attendees = @user.attendees.alpha
+        when "Best Wealth Rating" then @attendees = @user.attendees.best_wealth_rating
+        when "Most Tickets" then @attendees = @user.attendees.most_tickets
+      end
+    else
+      @attendees = @user.attendees.alpha
+    end
   end
 
   def index

@@ -8,12 +8,18 @@
 
 <h3>Attendees:</h3>
 
-<%= form_tag(concert_path(@concert), method: "get") do %>
-  <%= select_tag "sort", options_for_select(["Alpha", "Best Wealth Rating", "Most Tickets"]) %>
-  <%= submit_tag "Sort" %>
-<% end %><br>
+<% if !@concert.attendees.empty? %>
+  <%= form_tag(concert_path(@concert), method: "get") do %>
+    <%= select_tag "sort", options_for_select(["Alpha", "Best Wealth Rating", "Most Tickets"]) %>
+    <%= submit_tag "Sort" %>
+  <% end %><br>
 
-<%= render "attendees/table" %>
+  <%= render "attendees/table" %>
+<% else %>
+  <ul>
+    <li>None</li>
+  </ul>
+<% end %>
 
 <h3>Select an existing attendee to add to concert:</h3>
 
