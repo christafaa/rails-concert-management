@@ -15,8 +15,6 @@ class Attendee < ActiveRecord::Base
 
   scope :most_tickets, -> { joins(:tickets).group('attendees.id').order('COUNT(attendees.id) DESC') }
 
-  scope :prospects, -> { where.not('user.id' => nil) }
-
   scope :alpha, -> { order('last_name ASC') }
 
   def full_name
