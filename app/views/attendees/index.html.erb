@@ -1,8 +1,10 @@
 <h2>All Attendees:</h2>
 
 <%= form_tag("/attendees", method: "get") do %>
-  <%= select_tag "sort", options_for_select(["Alpha", "Best Wealth Rating", "Most Tickets"]) %>
+  <%= select_tag "sort", options_for_select(["Alphabetical", "Best Wealth Rating", "Most Tickets"]) %>
   <%= submit_tag "Sort" %>
 <% end %><br>
+
+<%= "Sorted by: #{@sort_status}" %><br><br>
 
 <%= render "table" %>

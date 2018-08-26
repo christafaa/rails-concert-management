@@ -8,17 +8,17 @@ module AttendeesHelper
     if sort_method
       case sort_method
         when "Alphabetical"
-          attendees = collection.alpha
+          attendees = collection.alpha.uniq
           sort_status = "Alphabetical"
         when "Best Wealth Rating"
-          attendees = collection.best_wealth_rating
+          attendees = collection.best_wealth_rating.uniq
           sort_status = "Best Wealth Rating"
         when "Most Tickets"
-          attendees = collection.most_tickets
+          attendees = collection.most_tickets.uniq
           sort_status = "Most Tickets"
       end
     else
-      attendees = collection.alpha
+      attendees = collection.alpha.uniq
       sort_status = "Alphabetical"
     end
     [attendees, sort_status]
