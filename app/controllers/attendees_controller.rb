@@ -1,6 +1,5 @@
 class AttendeesController < ApplicationController
   def new
-    #maybe use this with form_for in concert show page?
   end
 
   def create

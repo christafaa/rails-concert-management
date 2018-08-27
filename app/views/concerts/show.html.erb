@@ -27,6 +27,15 @@
 
 <h3>Select an existing attendee to add to concert:</h3>
 
+<%= form_tag(concert_tickets_path(@concert)) do %>
+  <%= collection_select(:ticket, :attendee_id, Attendee.all, :id, :full_name) %>
+  <%= label_tag "ticket[seat_number]", "Seat Number:" %>
+  <%= number_field_tag "ticket[seat_number]" %>
+  <%= hidden_field_tag "ticket[concert_id]", @concert.id %>
+  <%= submit_tag "Add to concert" %>
+<% end %>
+
+
 <h3>Create a new attendee to add to concert:</h3>
 
 <h3>Add an Attendee:</h3>
