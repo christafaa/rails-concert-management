@@ -3,18 +3,23 @@ class AttendeesController < ApplicationController
   end
 
   def create
-    attendee = Attendee.find_by(first_name: attendee_params[:first_name], last_name: attendee_params[:last_name])
+    attendee = Attendee.find_or_create_by(first_name: attendee_params[:first_name], last_name: attendee_params[:last_name])
     concert = Concert.find(params[:concert_id])
     seat_number = params[:ticket][:seat_number]
 
-    if attendee
-      Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
-      redirect_to concert_path(concert)
-    else
-      attendee = Attendee.create(first_name: attendee_params[:first_name], last_name: attendee_params[:last_name])
-      Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
-      redirect_to edit_concert_attendee_path(concert, attendee)
-    end
+    Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
+
+    redirect_to concert_path(concert)
+
+
+    # if attendee
+    #   Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
+    #   redirect_to concert_path(concert)
+    # else
+    #   attendee = Attendee.create(first_name: attendee_params[:first_name], last_name: attendee_params[:last_name])
+    #   Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
+    #   redirect_to edit_concert_attendee_path(concert, attendee)
+    # end
   end
 
   def edit
@@ -22,13 +27,13 @@ class AttendeesController < ApplicationController
   end
 
   def update
-    attendee = Attendee.find_by(id: params[:id]).update(attendee_params)
-    concert = Concert.find(params[:concert_id])
+    @attendee = Attendee.find_by(id: params[:id])
+    @attendee.update(attendee_params)
 
-    if attendee
-      redirect_to concert_path(concert)
+    if @attendee
+      redirect_to attendee_path(@attendee)
     else
-      redirect_to edit_concert_attendee_path(concert, attendee)
+      render :edit
     end
   end
 

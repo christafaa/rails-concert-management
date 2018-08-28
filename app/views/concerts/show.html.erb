@@ -17,7 +17,7 @@
   <%= form_tag(concert_path(@concert), method: "get") do %>
     <%= select_tag "sort", options_for_select(["Alphabetical", "Best Wealth Rating", "Most Tickets"]) %>
     <%= submit_tag "Sort" %>
-  <% end %><br>
+  <% end %>
 
 <% else %>
   <ul>
@@ -35,10 +35,7 @@
   <%= submit_tag "Add to concert" %>
 <% end %>
 
-
 <h3>Create a new attendee to add to concert:</h3>
-
-<h3>Add an Attendee:</h3>
 
 <%= form_tag concert_attendees_path(@concert) do %>
   <%= label_tag "attendee[first_name]", "First Name:" %>
