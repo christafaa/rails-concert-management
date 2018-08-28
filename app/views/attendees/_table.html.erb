@@ -17,4 +17,11 @@
       <td><%= link_to "Edit", edit_attendee_path(attendee) %></td>
     </tr>
   <% end %>
-</table>
+</table><br>
+
+<%= "Sorted by: #{@sort_status}" %><br><br>
+
+<%= form_tag(@path, method: "get") do %>
+  <%= select_tag "sort", options_for_select(["Alphabetical", "Best Wealth Rating", "Most Tickets"]) %>
+  <%= submit_tag "Sort" %>
+<% end %>

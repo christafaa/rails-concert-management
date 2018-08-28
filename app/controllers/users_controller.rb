@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
+    @path = user_path(@user)
     @attendees, @sort_status = helpers.attendees_and_sort_status(@user.attendees, params[:sort])
   end
 

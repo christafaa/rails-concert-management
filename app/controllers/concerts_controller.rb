@@ -23,7 +23,7 @@ class ConcertsController < ApplicationController
 
   def show
     @concert = Concert.find(params[:id])
-
+    @path = concert_path(@concert)
     @attendees, @sort_status = helpers.attendees_and_sort_status(@concert.attendees, params[:sort])
   end
 

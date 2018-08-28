@@ -1,16 +1,8 @@
 <h2><%= @user.username.capitalize %>'s Prospects:</h2>
 
-
 <% if !@user.attendees.empty? %>
 
   <%= render "attendees/table" %><br>
-
-  <%= "Sorted by: #{@sort_status}" %><br><br>
-
-  <%= form_tag(user_path(@user), method: "get") do %>
-    <%= select_tag "sort", options_for_select(["Alphabetical", "Best Wealth Rating", "Most Tickets"]) %>
-    <%= submit_tag "Sort" %><br>
-  <% end %>
 
 <% else %>
   <ul>

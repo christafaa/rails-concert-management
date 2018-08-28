@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :attendees, only: [:show, :index, :edit, :update]
 
-  resources :sessions, only: [:new, :create]
-  # possible to just do get sesson#new ?
+  resources :sessions, only: [:create]
+
   post '/logout', to: "sessions#destroy"
 
   get '/auth/github/callback' => 'sessions#create_via_omniauth'

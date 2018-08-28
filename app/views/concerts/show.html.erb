@@ -12,13 +12,6 @@
 
   <%= render "attendees/table" %><br>
 
-  <%= "Sorted by: #{@sort_status}" %><br><br>
-
-  <%= form_tag(concert_path(@concert), method: "get") do %>
-    <%= select_tag "sort", options_for_select(["Alphabetical", "Best Wealth Rating", "Most Tickets"]) %>
-    <%= submit_tag "Sort" %>
-  <% end %>
-
 <% else %>
   <ul>
     <li>None</li>

@@ -10,7 +10,7 @@ class AttendeesController < ApplicationController
     if attendee && concert && seat_number
       Ticket.create(concert: concert, attendee: attendee, seat_number: seat_number)
     end
-    
+
     redirect_to concert_path(concert)
   end
 
@@ -34,6 +34,7 @@ class AttendeesController < ApplicationController
   end
 
   def index
+    @path = attendees_path
     @attendees, @sort_status = helpers.attendees_and_sort_status(Attendee, params[:sort])
   end
 
