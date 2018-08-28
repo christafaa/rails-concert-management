@@ -8,14 +8,12 @@
 
 <h3>Attendees:</h3>
 
-<% if !@concert.attendees.empty? %>
-
-  <%= render "attendees/table" %><br>
-
-<% else %>
+<% if @concert.attendees.empty? %>
   <ul>
     <li>None</li>
   </ul>
+<% else %>
+  <%= render "attendees/table" %><br>
 <% end %>
 
 <%= render "add_attendee" %>

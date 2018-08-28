@@ -1,7 +1,4 @@
 class AttendeesController < ApplicationController
-  def new
-  end
-
   def create
     attendee = Attendee.find_or_create_by(first_name: attendee_params[:first_name], last_name: attendee_params[:last_name])
     concert = Concert.find(params[:concert_id])
@@ -16,6 +13,7 @@ class AttendeesController < ApplicationController
 
   def edit
     @attendee = Attendee.find(params[:id])
+    @users = User.all
   end
 
   def update
@@ -36,10 +34,6 @@ class AttendeesController < ApplicationController
   def index
     @path = attendees_path
     @attendees, @sort_status = helpers.attendees_and_sort_status(Attendee, params[:sort])
-  end
-
-  def destroy
-
   end
 
   private
