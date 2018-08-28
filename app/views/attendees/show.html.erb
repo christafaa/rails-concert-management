@@ -17,3 +17,5 @@
     <li><%= display_date(concert) %> -  <%= link_to concert.title, concert_path(concert) %> - Seats: <%= display_seats(concert, @attendee) %></li>
   <% end %>
 </ul>
+
+<%= link_to "Edit Attendee", edit_attendee_path(@attendee) %>
