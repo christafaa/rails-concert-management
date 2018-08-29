@@ -24,7 +24,8 @@ class ConcertsController < ApplicationController
   def show
     @concert = Concert.find(params[:id])
     @path = concert_path(@concert)
-    @attendees, @sort_status = helpers.attendees_and_sort_status(@concert.attendees, params[:sort])
+    collection = Attendee.collection_of(@concert)
+    @attendees, @sort_status = helpers.attendees_and_sort_status(collection, params[:sort])
   end
 
   def update
@@ -36,10 +37,6 @@ class ConcertsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
-    @concert = Concert.find(params[:id])
   end
 
   private

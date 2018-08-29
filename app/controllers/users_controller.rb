@@ -17,7 +17,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @path = user_path(@user)
-    @attendees, @sort_status = helpers.attendees_and_sort_status(@user.attendees, params[:sort])
+    collection = Attendee.collection_of(@user)
+    @attendees, @sort_status = helpers.attendees_and_sort_status(collection, params[:sort])
   end
 
   def index

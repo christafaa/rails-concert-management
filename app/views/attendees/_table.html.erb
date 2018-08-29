@@ -3,9 +3,8 @@
     <th>Name</th>
     <th>Profession</th>
     <th>Wealth Rating</th>
-    <th>Number of Tickets</th>
+    <th>Total Season Tickets</th>
     <th>Solicitor</th>
-
   </tr>
   <% @attendees.each do |attendee| %>
     <tr>
@@ -15,9 +14,6 @@
       <td><%= attendee.tickets.count %></td>
       <td><%= link_to attendee.user.username, user_path(attendee.user) if attendee.user %></td>
       <td><%= link_to "Edit", edit_attendee_path(attendee) %></td>
-      <% if @concert %>
-        <td><%= link_to "Remove from Concert", concert_ticket_path(@concert, )</td>
-      <% end %>
     </tr>
   <% end %>
 </table><br>
@@ -25,6 +21,6 @@
 <%= "Sorted by: #{@sort_status}" %><br><br>
 
 <%= form_tag(@path, method: "get") do %>
-  <%= select_tag "sort", options_for_select(["Alphabetical", "Best Wealth Rating", "Most Tickets"]) %>
+  <%= select_tag "sort", options_for_select(["Alphabetical", "Best Wealth Rating", "Most Season Tickets"]) %>
   <%= submit_tag "Sort" %>
 <% end %>

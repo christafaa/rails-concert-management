@@ -13,9 +13,9 @@ module AttendeesHelper
       when "Best Wealth Rating"
         attendees = collection.best_wealth_rating.uniq
         sort_status = "Best Wealth Rating"
-      when "Most Tickets"
+      when "Most Season Tickets"
         attendees = collection.most_tickets.uniq
-        sort_status = "Most Tickets"
+        sort_status = "Most Season Tickets"
       end
     else
       attendees = collection.alpha.uniq
