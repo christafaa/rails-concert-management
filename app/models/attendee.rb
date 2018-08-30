@@ -3,8 +3,7 @@ class Attendee < ActiveRecord::Base
   has_many :tickets
   has_many :concerts, through: :tickets
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :first_name, :last_name, presence: true
 
   validates :age, numericality: { greater_than: 0, allow_nil: true }
 
@@ -17,7 +16,7 @@ class Attendee < ActiveRecord::Base
 
   scope :most_tickets, -> { joins(:tickets).group('tickets.attendee_id').order('COUNT(tickets.attendee_id) DESC') }
 
-  # scope :top_prosepct, -> { most_tickets.best_wealth_rating }
+  # scope :top_prospect, -> { best_wealth_rating.most_tickets }
 
   def self.collection_of(association)
     where(id: association.attendees.map(&:id))
@@ -26,5 +25,4 @@ class Attendee < ActiveRecord::Base
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
-
 end

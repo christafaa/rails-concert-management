@@ -18,9 +18,8 @@ class AttendeesController < ApplicationController
 
   def update
     @attendee = Attendee.find_by(id: params[:id])
-    @attendee.update(attendee_params)
-
-    if @attendee
+    @users = User.all
+    if @attendee.update(attendee_params)
       redirect_to attendee_path(@attendee)
     else
       render :edit
