@@ -13,7 +13,6 @@
       <td><%= attendee.wealth_rating %></td>
       <td><%= attendee.tickets.count %></td>
       <td><%= link_to attendee.user.username, user_path(attendee.user) if attendee.user %></td>
-      <td><%= link_to "Edit", edit_attendee_path(attendee) %></td>
     </tr>
   <% end %>
 </table><br>
