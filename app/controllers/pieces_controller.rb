@@ -23,7 +23,7 @@ class PiecesController < ApplicationController
   end
 
   def show
-
+    @piece = Piece.find_by(id: params[:id])
   end
 
   def index
