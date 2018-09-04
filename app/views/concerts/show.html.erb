@@ -4,7 +4,16 @@
 
 <h3>Venue: <%= @concert.venue %></h3>
 
-<%= link_to "Edit Concert Details", edit_concert_path(@concert) %>
+<h3><%= link_to "Program", concert_pieces_path(@concert) %></h3> 
+
+<%= link_to "Edit Concert Details", edit_concert_path(@concert) %><br>
+
+
+
+
+
+
+
 
 <h3>Attendees:</h3>
 

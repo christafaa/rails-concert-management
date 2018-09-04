@@ -27,7 +27,8 @@ class PiecesController < ApplicationController
   end
 
   def index
-
+    @concert = Concert.find_by(id: params[:concert_id])
+    @pieces = @concert.pieces
   end
 
   def destroy
