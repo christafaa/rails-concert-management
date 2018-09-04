@@ -15,11 +15,17 @@ class PiecesController < ApplicationController
   end
 
   def edit
-
+    @piece = Piece.find_by(id: params[:id])
   end
 
   def update
+    @piece = Piece.find_by(id: params[:id]).update(piece_params)
 
+    if @piece
+      redirect_to concert_path(@piece.concert)
+    else
+      render :edit
+    end
   end
 
   def show
@@ -32,7 +38,9 @@ class PiecesController < ApplicationController
   end
 
   def destroy
-
+    Piece.find_by(id: params[:id]).destroy
+    concert = Concert.find_by(id: params[:concert_id])
+    redirect_to concert_pieces_path(concert)
   end
 
   private
