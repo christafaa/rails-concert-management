@@ -7,3 +7,5 @@
     <li><strong><%= piece.composer %></strong> <%= link_to "#{piece.title} #{piece.date_composed}", concert_piece_path(@concert, piece) %></li>
   <% end %>
 </ul>
+
+<%= link_to "Add a new piece to this concert", new_concert_piece_path(@concert) %>
