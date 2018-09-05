@@ -7,7 +7,7 @@ Specs:
 - [x] Include at least one has_many through relationship (Concert has_many Attendees, through Tickets)
 - [x] The "through" part of the has_many through includes at least one user submittable attribute (ticket.seat_number)
 - [x] Include reasonable validations for simple model objects (list of model objects with validations: User, Ticket, Concert, Attendee)
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 - [x] Include signup (how e.g. Devise)
 - [x] Include login (how e.g. Devise)
 - [x] Include logout (how e.g. Devise)
