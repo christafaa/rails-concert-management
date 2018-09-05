@@ -35,6 +35,20 @@ class AttendeesController < ApplicationController
     @attendees, @sort_status = helpers.attendees_and_sort_status(Attendee.all, params[:sort])
   end
 
+  def most_tickets
+    @path = attendees_path
+    @attendees = Attendee.all.most_tickets.uniq
+    @sort_status = "Most Tickets"
+    render :index
+  end
+
+  def best_wealth_rating
+    @path = attendees_path
+    @attendees = Attendee.all.best_wealth_rating.uniq
+    @sort_status = "Best Wealth Rating"
+    render :index
+  end
+
   private
 
   def attendee_params
