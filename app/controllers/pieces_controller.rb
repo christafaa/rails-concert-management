@@ -5,12 +5,11 @@ class PiecesController < ApplicationController
   end
 
   def create
-    @concert = Concert.find_by(id: params[:concert_id])
-    @piece = Piece.create(piece_params)
+    @concert = Concert.find(params[:concert_id])
+    @piece = Piece.new(piece_params)
+    @concert.pieces << @piece
 
-    if @piece
-      @concert.pieces << @piece
-      @concert.save
+    if @concert.save
       redirect_to concert_pieces_path(@concert)
     else
       render :new
@@ -19,7 +18,6 @@ class PiecesController < ApplicationController
 
   def edit
     @piece = Piece.find_by(id: params[:id])
-    @concert = Concert.find_by(id: params[:concert_id])
   end
 
   def update

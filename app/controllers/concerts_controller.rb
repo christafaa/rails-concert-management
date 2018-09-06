@@ -5,7 +5,7 @@ class ConcertsController < ApplicationController
 
   def create
     @concert = Concert.new(concert_params)
-    
+
     if @concert.save
       redirect_to concert_path(@concert)
     else
