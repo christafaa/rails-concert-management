@@ -16,7 +16,9 @@ class Attendee < ActiveRecord::Base
 
   scope :most_tickets, -> { joins(:tickets).group('tickets.attendee_id').order('COUNT(tickets.attendee_id) DESC') }
 
-  # scope :top_prospect, -> { best_wealth_rating.most_tickets }
+  def self.top_prospects(collection)
+    collection.sort_by {|attendee| attendee.points}.reverse
+  end
 
   def self.collection_of(association)
     where(id: association.attendees.map(&:id))
@@ -24,5 +26,23 @@ class Attendee < ActiveRecord::Base
 
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  def points
+    total = 0
+
+    if self.wealth_rating
+      case self.wealth_rating
+      when 1 then total += 50
+      when 2 then total += 45
+      when 3 then total += 40
+      when 4 then total += 35
+      when 5 then total += 30
+      when 6 then total += 25
+      when 7 then total += 20
+      when 8 then total += 15
+      end
+    end
+    total += self.tickets.count
   end
 end

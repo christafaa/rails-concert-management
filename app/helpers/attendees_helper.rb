@@ -16,6 +16,9 @@ module AttendeesHelper
       when "Most Season Tickets"
         attendees = collection.most_tickets.uniq
         sort_status = "Most Season Tickets"
+      when "Top Prospects"
+        attendees = Attendee.top_prospects(collection).uniq
+        sort_status = "Top Prospects"
       end
     else
       attendees = collection.alpha.uniq
