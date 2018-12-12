@@ -153,6 +153,11 @@
   border-radius: 0px 0px 25px 25px;
 }
 
+.inline {
+  display:inline-block;
+  padding-right: 10px;
+}
+
 
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

@@ -13,10 +13,10 @@
     <% if session.has_key?(:user_id) %>
       <div id="white-bg">
         <h3>Concert Management</h3>
-        <%= button_to "Home", user_path(find_user(session[:user_id])), method: :get %>
-        <%= button_to "Concerts", concerts_path %>
-        <%= button_to "Attendees", attendees_path %>
-        <%= button_to "Staff", users_path %>
+        <div class="inline"><%= button_to "Home", user_path(find_user(session[:user_id])), method: :get %></div>
+        <div class="inline"><%= button_to "Concerts", concerts_path, method: :get %></div>
+        <div class="inline"><%= button_to "Attendees", attendees_path, method: :get %></div>
+        <div class="inline"><%= button_to "Staff", users_path, method: :get %></div>
     <% else %>
       <div>
         <h3 class="login top">Concert Management</h3>
