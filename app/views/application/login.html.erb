@@ -1,13 +1,15 @@
-<h5>Login</h5>
+<div class="center">
+  <h5>Login</h5>
 
-<%= form_tag "/sessions" do %>
-  <%= label_tag :username, "Username:" %>
-  <%= text_field_tag :username %><br><br>
-  <%= label_tag :password, "Password:" %>
-  <%= password_field_tag :password %><br><br>
-  <%= submit_tag "Login" %>
-<% end %>
+  <%= form_tag "/sessions" do %>
+    <%= label_tag :username, "Username:" %>
+    <%= text_field_tag :username %><br><br>
+    <%= label_tag :password, "Password:" %>
+    <%= password_field_tag :password %><br><br>
+    <%= submit_tag "Login" %>
+  <% end %>
 
-<%= link_to "Login with GitHub", "/auth/github" %>
+  <h5><%= link_to "Login with GitHub", "/auth/github" %></h5>
 
-<h2><%= link_to "or Create an Account", new_user_path %></h2>
+  <h5><%= link_to "Create an Account", new_user_path %></h5>
+</div>
