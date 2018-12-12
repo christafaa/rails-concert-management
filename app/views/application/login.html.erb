@@ -1,4 +1,4 @@
-<h2>Login</h2>
+<h5>Login</h5>
 
 <%= form_tag "/sessions" do %>
   <%= label_tag :username, "Username:" %>
@@ -7,3 +7,7 @@
   <%= password_field_tag :password %><br><br>
   <%= submit_tag "Login" %>
 <% end %>
+
+<%= link_to "Login with GitHub", "/auth/github" %>
+
+<h2><%= link_to "or Create an Account", new_user_path %></h2>

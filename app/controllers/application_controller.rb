@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
       user = User.find(session[:user_id])
       redirect_to user_path(user)
     else
-      render :home
+      render :login 
     end
   end
 
