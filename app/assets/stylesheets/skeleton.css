@@ -112,10 +112,34 @@
 
 }
 
+#photo-background {
+  background: url("concert_hall.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#brown-bg {
+  background-color: rgb(100, 67, 55);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 10px;
+}
+
+#white-bg {
+  background-color: white;
+  border-radius: 25px;
+  padding: 25px;
+}
+
 .login {
   margin: auto;
   text-align: center;
   width: 30%;
+  min-width: 200px;
   background-color: white;
   opacity: 0.96;
   padding: 8px;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id=<%= session.has_key?(:user_id) ? "brown-bg" : "photo-background"%>>
   <head>
     <title>RailsConcertManagement</title>
     <%= csrf_meta_tags %>
@@ -10,14 +10,16 @@
   </head>
 
   <body>
-    <h3 class="top <%= "login" unless session.has_key?(:user_id) %>">Concert Management</h3>
     <% if session.has_key?(:user_id) %>
-      <%= button_to "Home", user_path(find_user(session[:user_id])), method: :get %>
-      <h3>
-        <%= link_to "Concerts", concerts_path %> |
-        <%= link_to "Attendees", attendees_path %> |
-        <%= link_to "Staff", users_path %>
-      </h3>
+      <div id="white-bg">
+        <h3>Concert Management</h3>
+        <%= button_to "Home", user_path(find_user(session[:user_id])), method: :get %>
+        <%= button_to "Concerts", concerts_path %>
+        <%= button_to "Attendees", attendees_path %>
+        <%= button_to "Staff", users_path %>
+    <% else %>
+      <div>
+        <h3 class="login top">Concert Management</h3>
     <% end %>
 
     <%= yield %>
@@ -26,6 +28,6 @@
       <p>Logged in as: <%= display_user(session[:user_id]) %></p>
       <%= button_to "Logout", "/logout" %>
     <% end %>
-
+      </div>
   </body>
 </html>
