@@ -112,10 +112,21 @@
 
 }
 
-.center {
+.login {
   margin: auto;
   text-align: center;
-  width: 40%;
+  width: 30%;
+  background-color: white;
+  opacity: 0.96;
+  padding: 8px;
+}
+
+.top {
+  border-radius: 25px 25px 0px 0px;
+}
+
+.bottom {
+  border-radius: 0px 0px 25px 25px;
 }
 
 

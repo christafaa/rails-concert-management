@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <h3 class=<%= "center" unless session.has_key?(:user_id) %>>Concert Management</h3>
+    <h3 class="top <%= "login" unless session.has_key?(:user_id) %>">Concert Management</h3>
     <% if session.has_key?(:user_id) %>
       <%= button_to "Home", user_path(find_user(session[:user_id])), method: :get %>
       <h3>
