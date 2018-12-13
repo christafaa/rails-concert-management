@@ -1,8 +1,8 @@
-<h2><%= @user.username.capitalize %>'s Prospects:</h2>
+<h5><%= @user.username.capitalize %>'s Prospects:</h5>
 
 <% if @user.attendees.empty? %>
-  <ul>
-    <li>None</li>
+  <ul class="offset-by-one columns">
+    <li>No Prospects</li>
   </ul>
 <% else %>
   <%= render "attendees/table" %><br>

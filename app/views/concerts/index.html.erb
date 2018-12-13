@@ -1,9 +1,11 @@
-<h2>All Concerts:</h2>
+<h5>All Concerts:</h5>
 
-<ul>
-  <% @concerts.each do |concert| %>
-    <li><%= display_date(concert) %> - <%= link_to concert.title, concert_path(concert) %></li>
-  <% end %>
-</ul>
+<div class="offset-by-one columns">
+  <ul>
+    <% @concerts.each do |concert| %>
+      <li><%= display_date(concert) %> - <%= link_to concert.title, concert_path(concert) %></li>
+    <% end %>
+  </ul>
 
-<%= link_to "Create a Concert", new_concert_path %>
+  <h5><%= link_to "Create a Concert", new_concert_path %></h5>
+</div>
