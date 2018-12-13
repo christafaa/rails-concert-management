@@ -1,14 +1,14 @@
-<h2>Title: <%= @concert.title %></h2>
+<h5>Title: <%= @concert.title %></h5>
 
-<h3>Date: <%= display_date(@concert) %></h3>
+<p>Date: <%= display_date(@concert) %></p>
 
-<h3>Venue: <%= @concert.venue %></h3>
+<p>Venue: <%= @concert.venue %></p>
 
-<h3><%= link_to "Program", concert_pieces_path(@concert) %></h3>
+<p><%= link_to "Program", concert_pieces_path(@concert) %></p>
 
 <%= link_to "Edit Concert Details", edit_concert_path(@concert) %><br>
 
-<h3>Attendees:</h3>
+<p>Attendees:</p>
 
 <% if @concert.attendees.empty? %>
   <ul>

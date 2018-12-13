@@ -1,21 +1,23 @@
-<h2><%= @attendee.full_name %></h2>
+<h5><%= @attendee.full_name %></h5>
 
-<h3>Profession: <%= @attendee.profession %></h3>
+<div class="offset-by-one columns">
+  <p><strong>Profession:</strong> <%= @attendee.profession %></p>
 
-<h3>Age: <%= @attendee.age %></h3>
+  <p><strong>Age:</strong> <%= @attendee.age %></p>
 
-<h3>Wealth Rating: <%= @attendee.wealth_rating %></h3>
+  <p><strong>Wealth Rating:</strong> <%= @attendee.wealth_rating %></p>
 
-<h3>Notes: <%= @attendee.notes %></h3>
+  <p><strong>Notes:</strong> <%= @attendee.notes %></p>
 
-<h3>Solicitor: <%= link_to @attendee.user.username, user_path(@attendee.user) if @attendee.user %></h3>
+  <p><strong>Solicitor:</strong> <%= link_to @attendee.user.username, user_path(@attendee.user) if @attendee.user %></p>
 
-<h3><%= @attendee.full_name %>'s Concerts:</h3>
+  <p><strong><%= @attendee.full_name %>'s Concerts:</strong></p>
 
-<ul>
-  <% @attendee.concerts.uniq.each do |concert| %>
-    <li><%= display_date(concert) %> -  <%= link_to concert.title, concert_path(concert) %> - Seats: <%= display_seats(concert, @attendee) %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @attendee.concerts.uniq.each do |concert| %>
+      <li><%= display_date(concert) %> -  <%= link_to concert.title, concert_path(concert) %> - Seats: <%= display_seats(concert, @attendee) %></li>
+    <% end %>
+  </ul>
 
-<%= link_to "Edit Attendee", edit_attendee_path(@attendee) %>
+  <%= link_to "Edit Attendee", edit_attendee_path(@attendee) %>
+</div>
