@@ -15,34 +15,24 @@ class Attendee {
   }
 }
 
-$(addSortListener)
+$(document).ready(addSortListener)
 $(document).on('page:change', addSortListener)
 
-// document.addEventListener("turbolinks:load", function() {
-//   addSortListener();
-// })
 
 function addSortListener() {
-  $("div#sort-button form").on("click", function(e) {
+  $("div#sort-button form").on("submit", function(e) {
     e.preventDefault();
-    console.log(this)
-    // getConcerts();
+    const sortRequest = e.target.elements[1].value
+    getAttendees(sortRequest);
   })
 }
-
-// function appendAttendees(data) {
-//   let attendees = [];
-//   let unique = true;
-//   data.forEach(function(attendeeData) {
-//     let newAttendee = new Attendee(attendeeData)
-//     attendees.forEach(function(attendee){
-//       if (attendee.displayName() === newAttendee.displayName()) {
-//         unique = false;
-//       }
-//     });
-//     if (unique) {
-//       attendees.push(newAttendee)
-//     }
-//   });
-//   $("#display").append(HandlebarsTemplates['attendees_template'](attendees));
-// }
+//change "/attendees/sort to be dynamic, grab from e.target.elements"
+function getAttendees(sortRequest) {
+  $.getJSON("/attendees/sort", {sort: sortRequest}, function(data) {
+    let attendees = []
+    data.attendees.forEach(function(attendeeData) {
+      attendees.push(new Attendee(attendeeData));
+    });
+    $("#sort-display").html(HandlebarsTemplates['attendees_template'](attendees));
+  });
+}

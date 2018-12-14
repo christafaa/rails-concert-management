@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
+//= require handlebars
 //= require turbolinks
 //= require_tree .
 //= require_attendees
