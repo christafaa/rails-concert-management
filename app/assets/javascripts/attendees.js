@@ -7,6 +7,7 @@ class Attendee {
     this.wealth_rating = data.wealth_rating;
     this.notes = data.notes;
     this.user_id = data.user_id;
+    this.tickets_count = data.tickets.length;
   }
 
   displayName() {
@@ -14,14 +15,17 @@ class Attendee {
   }
 }
 
-// $(function() {
+$(addSortListener)
+$(document).on('page:change', addSortListener)
+
+// document.addEventListener("turbolinks:load", function() {
 //   addSortListener();
-// });
+// })
 
 function addSortListener() {
-  $("div#sort-button form").on("submit", function(e) {
+  $("div#sort-button form").on("click", function(e) {
     e.preventDefault();
-    alert("hi");
+    console.log(this)
     // getConcerts();
   })
 }
