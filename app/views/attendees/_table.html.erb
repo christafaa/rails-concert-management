@@ -20,8 +20,10 @@
 
   <%= "Sorted by: #{@sort_status}" %><br><br>
 
+  <div id="sort-button">
   <%= form_tag(@path, method: "get") do %>
     <%= select_tag "sort", options_for_select(["Alphabetical", "Best Wealth Rating", "Most Season Tickets", "Top Prospects"]) %>
     <%= submit_tag "Sort" %>
   <% end %>
+  </div>
 </div>

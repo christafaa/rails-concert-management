@@ -14,3 +14,6 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require_attendees
+//= require jquery3
+//= require jquery_ujs
