@@ -18,9 +18,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @path = user_path(@user)
+    @path = "/users/#{@user.id}/attendees/sort"
     collection = Attendee.collection_of(@user)
     @attendees, @sort_status = helpers.attendees_and_sort_status(collection, params[:sort])
+  end
+
+  def sort_attendees
+    user = User.find(params[:id])
+    collection = Attendee.collection_of(user)
+    attendees, sort_status = helpers.attendees_and_sort_status(collection, params[:sort])
+    serialized_attendees = attendees.map {|attendee| AttendeesSerializer.new(attendee)}
+    render json: {attendees: serialized_attendees, path: "/users/#{user.id}/attendees/sort", sort_status: sort_status}
   end
 
   def index
