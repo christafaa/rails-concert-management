@@ -14,9 +14,9 @@ class Attendee {
   }
 }
 
-$(function() {
-  addSortListener();
-});
+// $(function() {
+//   addSortListener();
+// });
 
 function addSortListener() {
   $("div#sort-button form").on("submit", function(e) {

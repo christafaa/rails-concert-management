@@ -31,9 +31,14 @@ class AttendeesController < ApplicationController
   end
 
   def index
+    @path = attendees_sort_path
+    @attendees, @sort_status = helpers.attendees_and_sort_status(Attendee.all, params[:sort])
+  end
+
+  def sort
     attendees, sort_status = helpers.attendees_and_sort_status(Attendee.all, params[:sort])
     serialized_attendees = attendees.map {|attendee| AttendeesSerializer.new(attendee)}
-    render json: {attendees: serialized_attendees, path: attendees_path, sort_status: sort_status}
+    render json: {attendees: serialized_attendees, path: attendees_sort_path, sort_status: sort_status}
   end
 
   # def most_tickets

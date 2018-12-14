@@ -11,11 +11,7 @@ Rails.application.routes.draw do
     resources :pieces
   end
 
-  get '/attendees/most_tickets', to: 'attendees#most_tickets'
-
-  get '/attendees/best_wealth_rating', to: 'attendees#best_wealth_rating'
-
-  get '/attendees/top_prospects', to: 'attendees#top_prospects'
+  get '/attendees/sort', to: 'attendees#sort'
 
   resources :attendees, only: [:show, :index, :edit, :update]
 
