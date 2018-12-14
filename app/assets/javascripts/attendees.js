@@ -16,8 +16,7 @@ class Attendee {
   }
 }
 
-$(document).ready(addSortListener)
-$(document).on('page:change', addSortListener)
+$(document).on('turbolinks:load', addSortListener)
 
 function addSortListener() {
   $("div#sort-button form").on("submit", function(e) {
@@ -30,11 +29,11 @@ function addSortListener() {
 
 function getAttendees(action, sortRequest) {
   $.getJSON(action, {sort: sortRequest}, function(data) {
-    console.log("fetched!")
     let attendees = []
     data.attendees.forEach(function(attendeeData) {
       attendees.push(new Attendee(attendeeData));
     });
     $("#sort-display").html(HandlebarsTemplates['attendees_template'](attendees));
+    $("#sort-status").html(`Sorted by: ${sortRequest}`);
   });
 }

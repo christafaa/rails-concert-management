@@ -18,9 +18,9 @@
         </tr>
       <% end %>
     </table>
-
-    <%= "Sorted by: #{@sort_status}" %><br><br>
   </div>
+
+  <p id="sort-status">Sorted by: <%= @sort_status %></p>
 
   <div id="sort-button">
   <%= form_tag(@path, method: "get", remote: true) do %>

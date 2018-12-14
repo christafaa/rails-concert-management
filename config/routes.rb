@@ -5,13 +5,15 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show, :index]
 
+  get '/attendees/sort', to: 'attendees#sort_attendees'
+  get '/concerts/:id/attendees/sort', to: 'concerts#sort_attendees'
+  get '/users/:id/attendees/sort', to: 'users#sort_attendees'
+
   resources :concerts do
     resources :attendees, only: [:create]
     resources :tickets, only: [:create]
     resources :pieces
   end
-
-  get '/attendees/sort', to: 'attendees#sort'
 
   resources :attendees, only: [:show, :index, :edit, :update]
 
