@@ -9,10 +9,11 @@
   {{#if this}}
     {{#each this}}
       <tr>
-        <td>{{ displayName }}</td>
+        <td><a href="/attendees/{{ id }}">{{ displayName }}</a></td>
         <td>{{ profession }}</td>
-        <td>{{ age }}</td>
         <td>{{ wealth_rating }}</td>
+        <td>{{ tickets_count }}</td>
+        <td><a href="/users/{{ user.id }}">{{ user.username }}</a></td>
       </tr>
     {{/each}}
   {{else}}

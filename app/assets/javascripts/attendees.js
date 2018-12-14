@@ -1,12 +1,13 @@
 class Attendee {
   constructor(data) {
+    this.id = data.id;
     this.first_name = data.first_name;
     this.last_name = data.last_name;
     this.profession = data.profession;
     this.age = data.age;
     this.wealth_rating = data.wealth_rating;
     this.notes = data.notes;
-    this.user_id = data.user_id;
+    this.user = data.user;
     this.tickets_count = data.tickets.length;
   }
 
@@ -18,17 +19,18 @@ class Attendee {
 $(document).ready(addSortListener)
 $(document).on('page:change', addSortListener)
 
-
 function addSortListener() {
   $("div#sort-button form").on("submit", function(e) {
     e.preventDefault();
+    const action = e.target.action
     const sortRequest = e.target.elements[1].value
-    getAttendees(sortRequest);
+    getAttendees(action, sortRequest);
   })
 }
-//change "/attendees/sort to be dynamic, grab from e.target.elements"
-function getAttendees(sortRequest) {
-  $.getJSON("/attendees/sort", {sort: sortRequest}, function(data) {
+
+function getAttendees(action, sortRequest) {
+  $.getJSON(action, {sort: sortRequest}, function(data) {
+    console.log("fetched!")
     let attendees = []
     data.attendees.forEach(function(attendeeData) {
       attendees.push(new Attendee(attendeeData));
