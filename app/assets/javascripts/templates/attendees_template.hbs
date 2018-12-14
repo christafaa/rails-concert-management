@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Profession</th>
+    <th>Age</th>
+    <th>Wealth Rating</th>
+  </tr>
+  {{#if this}}
+    {{#each this}}
+      <tr>
+        <td>{{ displayName }}</td>
+        <td>{{ profession }}</td>
+        <td>{{ age }}</td>
+        <td>{{ wealth_rating }}</td>
+      </tr>
+    {{/each}}
+  {{else}}
+    <tr>
+      <td>No Attendees</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  {{/if}}
+</table>
