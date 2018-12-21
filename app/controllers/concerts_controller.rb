@@ -23,9 +23,6 @@ class ConcertsController < ApplicationController
 
   def show
     @concert = Concert.find(params[:id])
-    @path = "/concerts/#{@concert.id}/attendees/sort"
-    collection = Attendee.collection_of(@concert)
-    @attendees, @sort_status = helpers.attendees_and_sort_status(collection, "Alphabetical")
   end
 
   def sort_attendees

@@ -31,8 +31,6 @@ class AttendeesController < ApplicationController
   end
 
   def index
-    @path = attendees_sort_path
-    @attendees, @sort_status = helpers.attendees_and_sort_status(Attendee.all, "Alphabetical")
   end
 
   def sort_attendees

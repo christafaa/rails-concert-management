@@ -18,9 +18,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @path = "/users/#{@user.id}/attendees/sort"
-    collection = Attendee.collection_of(@user)
-    @attendees, @sort_status = helpers.attendees_and_sort_status(collection, params[:sort])
   end
 
   def sort_attendees

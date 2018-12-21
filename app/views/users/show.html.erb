@@ -8,7 +8,7 @@
   <div class="offset-by-one columns">
     <div id="sort-display"></div>
     <div id="sort-status"></div>
-    <%= render partial: "attendees/sort_button" %>
+    <%= render partial: "attendees/sort_button", locals: {path: "/users/#{@user.id}/attendees/sort"} %>
   </div>
 
   <script>
