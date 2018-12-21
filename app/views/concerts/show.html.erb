@@ -13,7 +13,17 @@
     <li>None</li>
   </ul>
 <% else %>
-  <%= render "attendees/table" %><br>
+  <div class="offset-by-one columns" id="sort-display">
+    <p id="sort-status"></p>
+  </div>
 <% end %>
 
 <%= render "add_attendee" %>
+
+<script>
+  const id = <%= @concert.id %>;
+  const action = `http://localhost:3000/concerts/${id}/attendees/sort`;
+  const sortRequest = "Alphabetical";
+  requestAttendees(action, sortRequest)
+  addSortListener()
+</script>

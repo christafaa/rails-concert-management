@@ -1,11 +1,6 @@
-<div class="offset-by-one columns" id="sort-display">
-
-  <p id="sort-status">Sorted by: <%= @sort_status %></p>
-
-  <div id="sort-button">
+<div id="sort-button">
   <%= form_tag(@path, method: "get", remote: true) do %>
     <%= select_tag "sort", options_for_select(["Alphabetical", "Best Wealth Rating", "Most Season Tickets"]) %>
     <%= submit_tag "Sort" %>
   <% end %>
-  </div>
 </div>

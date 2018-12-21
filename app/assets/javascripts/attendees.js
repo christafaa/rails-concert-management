@@ -16,26 +16,16 @@ class Attendee {
   }
 }
 
-// $(document).on('turbolinks:load', addSortListener)
-// $("div#sort-button").on("render", getAttendees())
-
 function addSortListener() {
   $("div#sort-button form").on("submit", function(e) {
     e.preventDefault();
     const action = e.target.action
     const sortRequest = e.target.elements[1].value
-    requestAttendees(action, sortRequest);
+    getAttendees(action, sortRequest);
   })
 }
 
-function getAttendees() {
-  alert("hi")
-  // const action = "http://localhost:3000/attendees/sort";
-  // const sortRequest = "Alphabetical";
-  // requestAttendees(action, sortRequest);
-}
-
-function requestAttendees(action, sortRequest) {
+function getAttendees(action, sortRequest) {
   $.getJSON(action, {sort: sortRequest}, function(data) {
     let attendees = []
     data.attendees.forEach(function(attendeeData) {

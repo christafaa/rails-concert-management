@@ -1,5 +1,14 @@
 <h5>All Attendees:</h5>
 
-<%= render "table" %><br>
+<div class="offset-by-one columns">
+  <div id="sort-display"></div>
+  <div id="sort-status"></div>
+  <%= render partial: "sort_button" %>
+</div>
 
-<script type="text/javascript" src="/javascripts/lib/attendees.js"></script>
+<script>
+  const action = "http://localhost:3000/attendees/sort";
+  const sortRequest = "Alphabetical";
+  getAttendees(action, sortRequest)
+  addSortListener()
+</script>
