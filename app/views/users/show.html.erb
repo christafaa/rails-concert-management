@@ -5,5 +5,17 @@
     <li>No Prospects</li>
   </ul>
 <% else %>
-  <!-- <#%= render "attendees/table" %><br> -->
+  <div class="offset-by-one columns">
+    <div id="sort-display"></div>
+    <div id="sort-status"></div>
+    <%= render partial: "attendees/sort_button" %>
+  </div>
+
+  <script>
+    const id = <%= @user.id %>;
+    const action = `http://localhost:3000/users/${id}/attendees/sort`;
+    const sortRequest = "Alphabetical";
+    getAttendees(action, sortRequest)
+    addSortListener()
+  </script>
 <% end %>
