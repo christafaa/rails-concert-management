@@ -16,15 +16,6 @@ class Attendee {
   }
 }
 
-function addSortListener() {
-  $("div#sort-button form").on("submit", function(e) {
-    e.preventDefault();
-    const action = e.target.action
-    const sortRequest = e.target.elements[1].value
-    getAttendees(action, sortRequest);
-  })
-}
-
 function getAttendees(action, sortRequest) {
   $.getJSON(action, {sort: sortRequest}, function(data) {
     let attendees = []
@@ -34,4 +25,13 @@ function getAttendees(action, sortRequest) {
     $("#sort-display").html(HandlebarsTemplates['attendees_template'](attendees));
     $("#sort-status").html(`Sorted by: ${sortRequest}`);
   });
+}
+
+function addSortListener() {
+  $("div#sort-button form").on("submit", function(e) {
+    e.preventDefault();
+    const action = e.target.action
+    const sortRequest = e.target.elements[1].value
+    getAttendees(action, sortRequest);
+  })
 }
