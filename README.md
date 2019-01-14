@@ -4,7 +4,7 @@ Concert Donor Management
 
 A web application built on Ruby on Rails that allows users to create concerts, add attendees to concerts, and track attendees as prospects.
 
-[Try out a live demo!](https://github.com/user/repo/blob/branch/other_file.md)
+[Try out a live demo!](https://frozen-dusk-71320.herokuapp.com)
 
 Create a concert:
 1. Click the Concerts button
