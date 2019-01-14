@@ -113,7 +113,7 @@
 }
 
 #photo-background {
-  background: url("/images/concert_hall.jpg") no-repeat center center fixed;
+  background: url("concert_hall.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
