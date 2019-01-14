@@ -8,13 +8,13 @@ module AttendeesHelper
     if sort_method
       case sort_method
       when "Alphabetical"
-        attendees = collection.alpha.uniq
+        attendees = Attendee.alpha(collection).uniq
         sort_status = "Alphabetical"
       when "Best Wealth Rating"
-        attendees = collection.best_wealth_rating.uniq
+        attendees = Attendee.best_wealth_rating(collection).uniq
         sort_status = "Best Wealth Rating"
       when "Most Season Tickets"
-        attendees = collection.most_tickets.uniq
+        attendees = Attendee.most_tickets(collection).uniq
         sort_status = "Most Season Tickets"
       when "Top Prospects"
         attendees = Attendee.top_prospects(collection).uniq

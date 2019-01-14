@@ -10,11 +10,17 @@ class Attendee < ActiveRecord::Base
   validates :wealth_rating, numericality: { greater_than: 0, allow_nil: true }
   validates :wealth_rating, numericality: { less_than: 10, allow_nil: true }
 
-  scope :alpha, -> { order('last_name ASC') }
+  def self.alpha(collection)
+    collection.sort_by {|attendee| attendee.last_name}
+  end
 
-  scope :best_wealth_rating, -> { order('-wealth_rating DESC') }
+  def self.best_wealth_rating(collection)
+    collection.sort { |a,b| a.wealth_rating && b.wealth_rating ? a.wealth_rating <=> b.wealth_rating : a.wealth_rating ? -1 : 1 }
+  end
 
-  scope :most_tickets, -> { joins(:tickets).group('tickets.attendee_id').order('COUNT(tickets.attendee_id) DESC') }
+  def self.most_tickets(collection)
+    collection.sort_by {|attendee| attendee.tickets.count}.reverse
+  end
 
   def self.top_prospects(collection)
     collection.sort_by {|attendee| attendee.points}.reverse
