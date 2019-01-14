@@ -38,8 +38,8 @@ Find the best prospects:
 1. When viewing a list of attendees, click the sort dropdown
 2. Select Best Wealth Rating and click Sort<br />
 In this example, an attendee with a wealth rating of 1 has extraordinary giving capacity.<br />
-Great prospects can also be found by measuring interest in the organization.
 
+Great prospects can also be found by measuring interest in the organization.<br />
 Sort by interest:<br />
 1. When you are viewing a list of attendees, click the sort dropdown
 2. Select Most Season Tickets and click Sort
