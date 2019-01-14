@@ -1,15 +1,21 @@
 <h5><%= @attendee.full_name %></h5>
 
 <div class="offset-by-one columns">
-  <p><strong>Profession:</strong> <%= @attendee.profession %></p>
+  <p><strong>Profession:</strong> <%= @attendee.profession.blank? ? "N/A" : @attendee.profession %></p>
 
-  <p><strong>Age:</strong> <%= @attendee.age %></p>
+  <p><strong>Age:</strong> <%= @attendee.age.blank? ? "N/A" : @attendee.age %></p>
 
-  <p><strong>Wealth Rating:</strong> <%= @attendee.wealth_rating %></p>
+  <p><strong>Wealth Rating:</strong> <%= @attendee.wealth_rating.blank? ? "N/A" : @attendee.wealth_rating %></p>
 
-  <p><strong>Notes:</strong> <%= @attendee.notes %></p>
+  <p><strong>Notes:</strong> <%= @attendee.notes.blank? ? "N/A" : @attendee.notes %></p>
 
-  <p><strong>Solicitor:</strong> <%= link_to @attendee.user.username, user_path(@attendee.user) if @attendee.user %></p>
+  <p><strong>Solicitor:</strong>
+    <% if @attendee.user %>
+      <%= link_to @attendee.user.username, user_path(@attendee.user)%>
+    <% else %>
+      <%= "N/A" %>
+    <% end %>
+  </p>
 
   <p><strong><%= @attendee.full_name %>'s Concerts:</strong></p>
 
