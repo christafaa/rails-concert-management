@@ -13,7 +13,7 @@
 
   <script>
     const id = <%= @user.id %>;
-    const action = `http://localhost:3000/users/${id}/attendees/sort`;
+    const action = `https://frozen-dusk-71320.herokuapp.com/users/${id}/attendees/sort`;
     const sortRequest = "Alphabetical";
     getAttendees(action, sortRequest)
     addSortListener()

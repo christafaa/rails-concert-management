@@ -21,7 +21,7 @@
 
   <script>
     const id = <%= @concert.id %>;
-    const action = `http://localhost:3000/concerts/${id}/attendees/sort`;
+    const action = `https://frozen-dusk-71320.herokuapp.com/concerts/${id}/attendees/sort`;
     const sortRequest = "Alphabetical";
     getAttendees(action, sortRequest)
     addSortListener()
